@@ -1,24 +1,30 @@
 #include "LinkedList.hpp"
 
-Node::Node(int data) : data(data) {}
+template <class T>
+Node<T>::Node(T data) : data(data) {}
 
-Node* Node::getNext() {
+template <class T>
+Node<T>* Node<T>::getNext() {
     return next;
 }
 
-void Node::setNext(Node *temp) {
+template <class T>
+void Node<T>::setNext(Node *temp) {
     next = temp;
 }
 
-void Node::displayNode() {
+template <class T>
+void Node<T>::displayNode() {
     cout<<data<<" "<<next<<endl;
 }
 
 
-List::List() : head(NULL), tail(NULL), count(0) {}
+template <class T>
+List<T>::List() : head(NULL), tail(NULL), count(0) {}
 
-void List::addNode(int data) {
-    Node *newnode = new Node(data);
+template <class T>
+void List<T>::addNode(T data) {
+    Node<T> *newnode = new Node<T>(data);
     if(!head) {
         head = tail = newnode;
     }
@@ -29,12 +35,13 @@ void List::addNode(int data) {
     ++count;
 }
 
-void List::displayList() {
+template <class T>
+void List<T>::displayList() {
     if(!head) {
         cout<<"Empty List\n";
     }
     else {
-        Node *temp = head;
+        Node<T> *temp = head;
 
         while(temp) {
             temp->displayNode();
@@ -42,3 +49,7 @@ void List::displayList() {
         }
     }
 }
+
+template class List<int>;
+template class List<float>;
+template class List<std::string>;

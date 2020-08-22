@@ -1,13 +1,14 @@
 #include <iostream>
 using namespace std;
 
+template <class T>
 class Node {
 private:
-    int data;
+    T data;
     Node *next;
 
 public:
-    Node(int);
+    Node(T);
 
     Node* getNext();
 
@@ -16,15 +17,16 @@ public:
     void displayNode();
 };
 
+template <class T>
 class List {
 private:
-    Node *head, *tail;
+    Node<T> *head, *tail;
     int count;
 
 public:
     List();
 
-    void addNode(int);
+    void addNode(T);
 
     void displayList();
 };

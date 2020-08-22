@@ -3,9 +3,10 @@
 using namespace std;
 
 int main() {
-    List temp;
+    List<string> temp;
+
     for(int i=0; i<10; ++i)
-        temp.addNode(i);
+        temp.addNode("Hello");
     
     temp.displayList();
 }
